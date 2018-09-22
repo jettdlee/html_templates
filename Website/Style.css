@@ -1,0 +1,169 @@
+/* STYLE SHEET
+	Required index.html
+	Created by Jet-Tsyn Lee 6/10/17, last updated 22/10/17
+*/
+
+/* TITLES */
+
+
+
+
+html	
+{	font-family:'Arial';
+}
+
+#title_head
+{	padding: 30px 50px;
+	font-size:35px;
+	font-weight:bold;
+	text-align:center;
+	background-image:url("Heading Background.png");
+	color:#ffffff;
+}
+
+footer
+{	background-color:#4f4f4f;
+	color:#ffffff;
+	margin-top:50px;
+	padding: 10px 20px 20px; 
+	font-size:80%; 
+}
+
+
+.subsec 
+{	font-size:110%;
+	font-weight:bold;
+	color:#14721e;
+}
+
+h2
+{	font-size:150%;
+	font-weight:bold;
+	text-align:left;
+	padding-top:20px;
+	padding-bottom:10px;
+	margin-top:20px;
+	margin-bottom:10px;
+	color:#1c591f;
+	border-bottom: solid;
+}
+
+
+#Personal_Info, #Career	/*header right re-size due to portrait*/
+{
+	/*article margin + portrait size + portrait margin/padding left*/
+	margin-right:260px
+}
+
+
+/* CONTENT */
+body
+{	width:97%;
+	margin:0 auto;
+	background-image:url("Background.png");
+}
+
+article, td
+{	font-size:15px;
+	line-height:150%;
+}
+
+p	
+{	text-align:justify;
+	margin-bottom:-5px;
+}
+
+article
+{	margin-left:50px;
+	margin-right: 50px;
+	float: none;
+	padding:0;
+	border:0;
+	outline:0;
+}
+
+
+/* Table Formats*/
+
+table,  td
+{	border-collapse: collapse;
+	border-style:solid; 
+	border-color:#4f4f4f;
+	margin-left:50px;
+	margin-top:10px;
+}
+
+td
+{	padding:5px;
+	text-align:center;
+	background-color:white;
+}
+
+th
+{	font-size:110%;
+	background-color:#4f4f4f;
+	color:#ffffff;
+}
+	
+td.date
+{	width:120px;
+}
+
+td.job_details 
+{	text-align:justify;
+	width:900px;
+	padding-right:20px;
+}
+
+td.edu_details 
+{	text-align:justify;
+}
+
+
+/* NAVIGATION BAR */
+.navbar 
+{   list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	font-size:120%;
+    top: 0;
+    width: 100%;
+}
+
+.navbar li 
+{   float: left;
+	border-right: 3px solid #bbb;
+}
+
+.navbar li a 
+{   display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover 
+{   background-color: #14721e;
+	color:#ffffff;
+}
+
+
+/* IMAGES */
+.port_img 
+{	float:right; 
+	margin:-40px 0px 30px 30px;
+	width:230px;
+	height:auto;
+	border-radius: 10px;
+}
+
+.uol_logo, .geoban_logo, .ljmu_logo, .acl_logo, .inno_logo
+{	width:200px; 
+	height:auto;
+}
+
+
+

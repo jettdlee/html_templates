@@ -1,0 +1,229 @@
+/*
+	Dice Roll Game Javascript
+	File: stylesheet.css
+	Required Files: game.html, game.js
+	Created by Jet-Tsyn Lee 30/10/2017, Last updated 07/11/2017
+*/
+
+/* ~~~~~  GENERAL ELEMENT STYLES & LAYOUT  ~~~~~*/
+html {
+	font-family:'Arial';
+	background-color:#d8d8d8;
+}
+
+/* Table colours */
+table,  td {
+	border-collapse: collapse;
+	border-style:solid; 
+	border-color:#4f4f4f;
+	margin-left:50px;
+	margin-top:10px;
+}
+
+td {	
+	text-align:center;
+	background-color:white;
+}
+
+th {		
+	background-color:#4f4f4f;
+	color:#ffffff;
+}
+
+h2 {
+	text-align:center;
+	font-size:120%;
+	color:#014400;
+}
+
+.gameHead{
+	font-size:150%;
+}
+
+/* GRID Layout */
+body {
+	display: grid;
+	/*grid-template-rows: auto 220px 100px 50px 300px auto;*/
+	grid-template-columns: 2% 50% 16% 30% 2%;
+	grid-template-areas: 
+		". header header header ."
+		". description table table ."
+		". roundData roundData roundData ."
+		". buttons buttons buttons ."
+		". dice dice roundScore ."
+		". footer footer footer .";
+	grid-auto-rows: minmax(20px, auto);
+}
+
+
+/* ~~~~~  HEADER & FOOTER  ~~~~~*/
+
+header
+{	grid-area: header;
+	padding: 20px 40px;
+	font-size:200%;
+	font-weight:bold;
+	text-align:center;
+	color:#ffffff;
+}
+
+footer {
+	grid-area: footer;
+	color:#ffffff;
+	margin-top:50px;
+	padding: 10px 20px 20px; 
+	font-size:80%; 
+}
+
+header, footer {
+	background-color:#014400;
+}
+
+
+/* ~~~~~  DESCRIPTION  ~~~~~ */
+
+/* Rules */
+.description{
+	grid-area: description;
+	padding:10px;
+	text-align:justify;
+}
+.description, .tableScore{
+	border-bottom:5px solid;
+	border-bottom-color:#014400;
+}
+
+/* Score Table */
+.tableScore{
+	grid-area: table;
+	
+}
+.tableScore td
+{	font-size:12.5px;
+	padding:3px 5px 3px 5px;
+}
+
+.tableScore th
+{	font-size:90%;
+	padding:5px 5px 5px 5px;
+}
+
+#scoreRules {
+margin:auto;
+}
+
+
+
+/* ~~~~~  GAME INFORMATION  ~~~~~ */
+.gameInfo{
+	grid-area: roundData;
+	text-align:center;
+	min-height:120px
+}
+
+#diceNo{
+	width:5%;
+	height:1.5em;
+	font-size:20px
+}
+
+#gameSetup{
+	font-size:20px
+}
+
+#diceError{
+	color:red;
+}
+
+
+/* ~~~~~  BUTTON BAR  ~~~~~ */
+
+
+#buttons{
+  grid-area: buttons;
+  display:flex;
+  flex-direction: row;
+  
+}
+
+button{
+	flex-grow:1;
+    background-color: #014400;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+	font-size:20px;
+	text-align:center;
+	
+	margin:20px 40px 20px 40px;
+}
+
+button:hover{
+	background-color: #02b700;
+}
+
+
+/* ~~~~~  DESK & DICE  ~~~~~ */
+.desk{
+	grid-area: dice;
+	background-color: #009900;
+	margin:20px 20px 20px 40px;
+	border-radius:50px;
+	padding:20px 0px 20px 0px;
+	border:15px solid;
+	border-color:#8b5a2b;
+	min-height:370px;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+.dice {	
+	width:170px;
+	height:auto;
+	padding:10px 20px 10px 20px;
+	margin:auto;
+}
+
+
+/* ~~~~~  RESULT TABLE  ~~~~~ */
+
+.result{
+	grid-area: roundScore;
+}
+.resRound, .resTotal{
+	font-weight:bold;
+}
+
+.result td
+{	font-size:100%;
+	padding:3px 10px 3px 10px;
+}
+
+.result th
+{	font-size:110%;
+	padding:10px 10px 10px 10px;
+}
+
+
+/* ~~~~~  END RESULTS  ~~~~~ */
+.endGame{
+  grid-area: dice;
+  min-height:200px;
+  text-align:center;
+  color:#ffffff;
+  font-size:120%;
+}
+#end{
+	color:#ffffff;
+}
+
+
+
+
+
+
+
+

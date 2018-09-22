@@ -1,0 +1,193 @@
+<!--
+	Dice Roll Game Javascript
+	File: Game.html
+	
+	HTML file for the Dice Roll game, User can roll a 3-6 dice in a game over a number of rounds to
+	score the higest amounts of points possible. HTML is setup to allow dynamic changes using the
+	JavaScript file depending on the state of the game, which will also add and delete elements if
+	required.
+	
+	Required Files: game.js, stylesheet.css
+	Created by Jet-Tsyn Lee 30/10/2017, Last updated 07/11/2017
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+
+
+	<!-- HEADER SECTION -->
+	<head>
+		<meta charset = 'utf-8'>
+		<title>Dice Roll Game</title>
+
+		<!-- Meta Data -->
+		<meta name='Title' content='Dice Roll Game' />
+		<meta name='Type' content='Dice Roll Game' />
+		<meta name='Rights' content='Copyright Jet-Tsyn Lee' />
+		<meta name ="Author" content ="Jet-Tsyn Lee">
+		<meta name ="Description" content ="Dice roll game, where the user is able to roll a number of dice over a N amount of rounds, to score the highest amount of points a game">
+		<meta name ="Keywords" content ="Dice, Game">
+
+		<!-- Additional sheets -->
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<script type="text/javascript" src="game.js"></script>
+		
+	</head>
+
+
+	<body>
+
+		<!-- #####  HEADER SECTION  ##### -->
+		<header class="topHeader">Dice Roll Game</header>
+		
+		
+		<!-- #####  DESCRIPTION SECTION  ##### -->
+		<!-- Rules and game description -->
+		<section class="description">
+			<h2>Welcome to the Dice Rolling Game</h2>
+			<p>In this game, you play a number of dice over a unlimited number of rounds to score the highest amount of points depending on your luck.</p>
+			<p>To begin, please select a number of dice to use in a game, between 3-6 dice to the input below.</p>
+			<p>For each round, you will roll the number of 6 sided dice you selected. Depending on the roll, you will be given points which will be 
+			added to your total balance, points are calculated from the given table to the right.</p>
+			<p>You will be given the chance to proceed to the next round, or you can finish the game, and your overall results will be given. </p>
+		</section>
+		
+		<!-- Round score table -->
+		<section class="tableScore">
+			<h2>Score</h2>
+			<table id="scoreRules">
+				<thead>
+					<tr><th>Description</th><th>Point Calculation</th><th>Example</th><th>ex. Point Calculation</th></tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>All <i>N</i> dice have the same value</td>
+						<td>60 + Sum of all dice values</td>
+						<td>3, 3, 3, 3</td>
+						<td>60+3+3+3+3=72</td>
+					</tr>
+
+					<tr>
+						<td><i>N-1</i> dice have the same value</td>
+						<td>40 + Sum of all dice values</td>
+						<td>4, 4, 4, 6</td>
+						<td>40+4+4+4+6=58</td>
+					</tr>
+					<tr>
+						<td>Straight sequence</td>
+						<td>20 + Sum of all dice values</td>
+						<td>4, 6, 3, 5</td>
+						<td>20+4+6+3+5=38</td>
+					</tr>
+					<tr>
+						<td>All dice have different values, (exc. Straight)</td>
+						<td>Sum of all dice values</td>
+						<td>3, 6, 2, 5</td>
+						<td>3+6+2+5=38</td>
+					</tr>
+					<tr>
+						<td>Any other outcome</td>
+						<td>Zero</td>
+						<td>4, 5, 3, 3</td>
+						<td>0</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		
+
+		<!-- #####  GAME INFO  ##### -->
+		<!-- Containers setup for different states of the game to allow the JS code to dynamically change
+			elements of the webpage 	-->
+		
+		<section class="gameInfo">
+		
+			<!-- Setup - Number of Dice used for game-->
+			<div class="setup" id="gameSetup">
+				<p>Please set the amount of dice to begin the game (3-6 dice)</p>
+				<form>
+					<label for="diceNo"><b>No. of Dice:</b></label>
+					<input id="diceNo" type="number" min="3" max="6" required>
+					<label id="diceError"></label>
+				</form>
+			</div>
+			
+			<!-- Play - Round Information - display round review -->
+			<div class="gamePlay">
+				<!-- show N number of Dice-->
+				<h2 class="gameHead" id="roundNo">Round 1</h2>
+				<p id="roundDesc">Game setup, Please select 'Roll' to begin</p>
+			</div>
+			
+			<!-- End Game - Confirm to user if they want to quit game-->
+			<div class="confEnd">
+				<!-- show N number of Dice-->
+				<h2 class="gameHead" id="endHead">End Game</h2>
+				<p id="endDesc">Are you sure you want to end the game?</p>
+			</div>
+			
+		</section>
+		
+		
+		<!-- #####  BUTTON BAR  ##### -->
+		<!-- Buttons will change depending on the game state to show the avalible options to the user.
+			 Corresponding function responses located in the game.js file -->		
+		<section id="buttons">
+			<h2 class="hide">HIDE</h2>	<!-- Hidden title to statisfy the validator -->
+			
+			<!-- Setup - confirm the number of dice used -->
+			<button class="setup" id="start" type="button" onclick="diceSetup()">START</button>
+			
+			<!-- Play - on round start, ask user to roll dice -->
+			<button class="gamePlay" id="rollBtn" type="button" onclick="dicePlay()">ROLL DICE</button>
+			
+			<!-- Round End - after roll finish, user can select to start new round or end game -->
+			<button class="newRound" id="nextRound" type="button" onclick="roundStart()">NEXT ROUND</button>
+			<button class="newRound" id="endGame" type="button" onclick="confEnd()">END GAME</button>
+			
+			<!-- End Game - if user selects end game, ask to confirm-->
+			<button class="confEnd" id="btnNo" type="button" onclick="gameEndNo()">NO</button>
+			<button class="confEnd" id="btnYes" type="button" onclick="gameEndYes()">YES</button>
+			
+		</section>
+		
+		
+		
+		<!-- #####  DICE DESK  ##### -->
+		<!-- Desk section - will show the current dice roll images, and show the final results at end game-->
+		<section class="desk" id="diceImage">
+			<h2 class="hide">HIDE</h2>
+			
+			<!-- Dice Images - images will be added from the javascript file -->
+			<div class="tableDice" id="diceImg">
+			</div>
+			
+			<!-- End Results - show the users overall scores from the javascript file-->
+			<article class="endGame">
+				<h2 id="end">Thank You for Playing</h2>
+				<p id="endRound"></p>
+				<p id="endTotal"></p>
+				<p id="endAverage"></p>
+			</article>
+			
+		</section>
+			
+		<!-- Round Results Table - individual rounds added from the JS file, as the user plays more rounds -->
+		<aside class="result">
+			<table id="resultTable"></table>
+		</aside>
+
+		
+		<!-- #####  FOOTER  ##### -->
+		<footer>
+			<span style="float:left; vertical-align:middle">Copyright &copy; Jet-Tsyn Lee</span>
+			<span style="float:right" id="footerTime"></span>
+		</footer>
+
+
+	</body>
+
+
+
+</html>
