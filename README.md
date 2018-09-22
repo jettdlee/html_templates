@@ -1,5 +1,5 @@
 # HTML Templates
-For Assignments COMP519 Web Programming, MSc Computer Science, University of Liverpool
+##### For Assignments COMP519 Web Programming, MSc Computer Science, University of Liverpool
 
 Collection of several HTML templates implementing the use of sevearal languages to build features on the website.
 
